@@ -1,0 +1,16 @@
+{
+  "name": "studysync",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "esbuild app.js --bundle --format=esm --minify --outfile=dist/app.bundle.js && cp index.html styles.css dist/ && mkdir -p dist/emails && cp emails/*.html dist/emails/",
+    "dev": "npm run build && netlify dev"
+  },
+  "dependencies": {
+    "@netlify/database": "^2.0.1",
+    "@netlify/identity": "^2.0.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  }
+}

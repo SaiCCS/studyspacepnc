@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#172b3a" />
+  <meta name="description" content="StudySync — a calmer way to keep track of what you need to learn." />
+  <title>StudySync — Your study space</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Crimson+Pro:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <section class="auth-screen" id="auth-screen" hidden aria-label="Sign in to StudySync"></section>
+  <div class="app-shell" hidden>
+    <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+      <a class="brand" href="#overview" aria-label="StudySync home">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 8.5c4.3-1.8 8.2-1.2 11 1.1v15c-2.8-2.3-6.7-2.9-11-1.1zM27 8.5c-4.3-1.8-8.2-1.2-11 1.1v15c2.8-2.3 6.7-2.9 11-1.1z"/><path d="M9 13c2-.6 3.8-.4 5.2.4M23 13c-2-.6-3.8-.4-5.2.4M9 17c2-.5 3.8-.3 5.2.5M23 17c-2-.5-3.8-.3-5.2.5"/></svg></span>
+        <span class="brand-name">Study<span>Sync</span></span>
+      </a>
+      <div class="workspace-label">YOUR STUDY SPACE</div>
+      <nav class="nav-group" id="primary-nav">
+        <a class="nav-link active" href="#overview" data-page="overview"><span class="icon" data-icon="grid"></span><span>Overview</span><span class="nav-current">Today</span></a>
+        <a class="nav-link" href="#tasks" data-page="tasks"><span class="icon" data-icon="check-square"></span><span>My tasks</span><span class="nav-count" id="nav-task-count">0</span></a>
+        <a class="nav-link" href="#calendar" data-page="calendar"><span class="icon" data-icon="calendar"></span><span>Calendar</span></a>
+        <a class="nav-link" href="#focus" data-page="focus"><span class="icon" data-icon="timer"></span><span>Focus room</span></a>
+        <a class="nav-link" href="#progress" data-page="progress"><span class="icon" data-icon="chart"></span><span>Progress</span></a>
+      </nav>
+      <div class="sidebar-rule"></div>
+      <div class="workspace-label">YOUR COURSES <button class="mini-add" id="add-subject" aria-label="Add subject">+</button></div>
+      <nav class="nav-group course-nav" id="subject-nav"></nav>
+      <div class="sidebar-bottom">
+        <a class="nav-link" href="#settings" data-page="settings"><span class="icon" data-icon="settings"></span><span>Settings</span></a>
+        <a class="nav-link" href="#privacy" data-page="privacy"><span class="icon" data-icon="shield"></span><span>Privacy</span></a>
+        <button type="button" class="nav-link nav-logout" data-logout><span class="icon" data-icon="logout"></span><span>Sign out</span></button>
+        <div class="profile-block"><div class="avatar avatar-sidebar" aria-hidden="true"></div><div class="profile-copy"><strong id="sidebar-name"></strong><span id="sidebar-program"></span></div><button class="icon-button profile-menu" aria-label="Sign out" title="Sign out" data-logout><span data-icon="close"></span></button></div>
+      </div>
+    </aside>
+    <main id="main" class="main-area" tabindex="-1">
+      <header class="topbar">
+        <button class="icon-button mobile-menu" id="menu-toggle" aria-label="Open navigation" aria-expanded="false"><span data-icon="menu"></span></button>
+        <div class="crumb"><span class="crumb-dot"></span><span>My workspace</span><span class="crumb-slash">/</span><strong id="crumb-page">Overview</strong></div>
+        <div class="topbar-tools">
+          <label class="search-box"><span data-icon="search"></span><input id="global-search" type="search" placeholder="Search your study space" aria-label="Search tasks and courses" /><kbd>⌘ K</kbd></label>
+          <button class="icon-button notification-button" id="notifications" aria-label="Notifications"><span data-icon="bell"></span><i></i></button>
+          <button class="icon-button theme-toggle" id="theme-toggle" aria-label="Switch to dark mode" title="Switch to dark mode"></button>
+          <button class="avatar avatar-top" aria-label="Go to settings" data-goto="settings"></button>
+        </div>
+      </header>
+      <div class="page-wrap" id="page-content"></div>
+      <footer class="app-footer"><span>StudySync <span class="footer-sep">·</span> A little more clarity, every day.</span><span><a href="#privacy">Privacy</a><span class="footer-sep">·</span><span id="footer-year"></span></span></footer>
+    </main>
+  </div>
+  <div id="modal-root"></div>
+  <div class="toast-region" id="toast-region" aria-live="polite" aria-atomic="true"></div>
+  <script type="module" src="app.bundle.js"></script>
+</body>
+</html>
