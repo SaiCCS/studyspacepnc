@@ -1,4 +1,4 @@
-# PnCStudySync
+# PncStudySync
 
 ## Netlify setup
 
